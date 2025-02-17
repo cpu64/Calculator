@@ -55,9 +55,9 @@ void Token::fill_variables(std::vector<Token>& tokeans){
                 std::cin.ignore();
                 try {
                     std::stod(temp);
+                    cache[it->value()] = temp;
                     Token tokean = Token(temp, NUMBER);
                     *it = tokean;
-                    cache[it->value()] = temp;
                 } catch (const std::out_of_range& e) {
                     std::cerr << std::format("Value: {} is too large for a 64 bit float!\n", temp);
                 } catch (const std::invalid_argument& e) {
